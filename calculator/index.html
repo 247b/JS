@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <script src="index.js"></script>
+</head>
+<body>
+  <h1>Calculator</h1>
+    <p>
+      <button onclick="stringAdder('1')">1</button>
+      <button onclick="stringAdder('2')">2</button>
+      <button onclick="stringAdder('3')">3</button>
+      <button onclick="stringAdder(' + ')">+</button>
+      <button onclick="console.log(calculations)">log</button>
+    </p>
+    <p>
+      <button onclick="stringAdder('4')">4</button>
+      <button onclick="stringAdder('5')">5</button>
+      <button onclick="stringAdder('6')">6</button>
+      <button onclick="stringAdder(' - ')">-</button>
+      <button onclick="calculations = '';"> C </button>
+    </p>
+    <p>
+      <button onclick="stringAdder('7')">7</button>
+      <button onclick="stringAdder('8')">8</button>
+      <button onclick="stringAdder('9')">9</button>
+      <button onclick="stringAdder(' * ')">X</button>
+    </p>
+    <p>
+      <button onclick="stringAdder('0')">0</button>
+      <button onclick="stringAdder('00')">00</button>
+      <button onclick="stringAdder(' / ')">/</button>
+      <button onclick="answer()">=</button>
+            
+  </p>
+</body>
+</html>
