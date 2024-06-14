@@ -33,16 +33,23 @@ function compare(myMove){
   }
 }
 
-function alertBox() {
-  alert(`${result},\nYou picked ${playerMove},\nand computer picked ${computerMove}`)
-}
-
 //logs data in the console.
-function data(){
+function dataLogging(){
   console.log(randomNum);
   console.log(`You picked ${playerMove}`);
   console.log(`computer picked ${computerMove}`);
   console.log(result);
-}
+  }
 
+  //alert modal
+function alertBox() {
+  alert(`${result},\nYou picked ${playerMove},\nand computer picked ${computerMove}`)
+  }
+
+function game(move){
+  getComputerMove()
+  compare(move)
+  dataLogging()
+  alertBox()
+}
 
