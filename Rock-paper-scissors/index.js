@@ -1,55 +1,71 @@
-let randomNum;
-let computerMove = ''
-let playerMove =''
-let result =''
-
-//creates the computer's move using Math.random and stores in computerMove.
-function getComputerMove() {
-  randomNum = Math.floor(Math.random()*3+1)
-  if (randomNum === 1){
-    computerMove = 'rock🗿'
-  }else if(randomNum === 2){
-    computerMove = 'paper📃'
-  }else if(randomNum === 3){
-    computerMove = 'scissors✂'
-  }
+let score = {
+  win:0,
+  lose:0,
+  tie:0,
 }
 
-// decides the result of the game by passing player's move as myMove into the function and stores in result variable.
-function compare(myMove){
-  playerMove = myMove
-  if( myMove === computerMove){
-    result = 'match tied🤝'
-
-  }else if ((myMove === 'rock🗿' && computerMove === 'paper📃') || 
-            (myMove === 'paper📃' && computerMove === 'scissors✂') ||
-            (myMove === 'scissors✂' && computerMove === 'rock🗿')){
-    result = 'You lost the match👎'
-
-  }else if ((myMove === 'rock🗿' && computerMove === 'scissors✂') || 
-            (myMove === 'paper📃' && computerMove === 'rock🗿') ||
-            (myMove === 'scissors✂' && computerMove === 'paper📃')){
-    result = 'You won the match👍'
-  }
+function reset(){
+  score.win = 0,
+  score.lose = 0,
+  score.tie = 0,
+  console.log('Scores are reset...');
+  alert('Started a new game')
 }
 
-//logs data in the console.
-function dataLogging(){
-  console.log(randomNum);
-  console.log(`You picked ${playerMove}`);
-  console.log(`computer picked ${computerMove}`);
-  console.log(result);
+function game(myMove){
+  let computer = {
+    move:'',
+    randomnum:Math.floor(Math.random()*3+1),
+  }
+  let player = {
+    move:'',
+    result:'',
   }
 
-  //alert modal
-function alertBox() {
-  alert(`${result},\nYou picked ${playerMove},\nand computer picked ${computerMove}`)
+  if (computer.randomnum === 1){
+    computer.move = 'rock🗿'
+  }else if(computer.randomnum === 2){
+    computer.move = 'paper📃'
+  }else if(computer.randomnum === 3){
+    computer.move = 'scissors✂'
   }
 
-function game(move){
-  getComputerMove()
-  compare(move)
-  dataLogging()
+  player.move = myMove
+  if( player.move === computer.move){
+    player.result = 'match tied🤝'
+    score.tie += 1
+
+  }else if ((player.move === 'rock🗿' && computer.move === 'paper📃') || 
+            (player.move === 'paper📃' && computer.move === 'scissors✂') ||
+            (player.move === 'scissors✂' && computer.move === 'rock🗿')){
+    player.result = 'You lost the match👎'
+    score.lose += 1
+
+  }else if ((player.move === 'rock🗿' && computer.move === 'scissors✂') || 
+            (player.move === 'paper📃' && computer.move === 'rock🗿') ||
+            (player.move === 'scissors✂' && computer.move === 'paper📃')){
+    player.result = 'You won the match👍'
+    score.win += 1
+  }
+
+  function dataLog(){
+    console.log(computer.randomnum);
+    console.log(`You picked ${player.move}`);
+    console.log(`computer picked ${computer.move}`);
+    console.log(player.result);
+    }
+  
+  function alertBox() {
+    alert(`${player.result},\nYou picked ${player.move},\nand computer picked ${computer.move}\nwins:${score.win} lost:${score.lose} tie:${score.tie}`)
+    }
+  
+  
+  dataLog()
+
   alertBox()
+
 }
+
+
+
 
