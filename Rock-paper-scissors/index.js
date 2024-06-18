@@ -1,15 +1,17 @@
-const score = {
+let score = JSON.parse(localStorage.getItem('score')) || {
   win:0,
   lose:0,
   tie:0,
 }
 
 function reset(){
-  score.win = 0,
-  score.lose = 0,
-  score.tie = 0,
+  score.win = 0
+  score.tie = 0
+  score.lose = 0
   console.clear()
   console.log('Started New Game');
+  localStorage.removeItem('score')  
+  console.log(score);
 }
 
 function game(myMove){
@@ -47,6 +49,9 @@ function game(myMove){
     player.result = 'You won the match👍'
     score.win ++;
   }
+  let scoreJson = JSON.stringify(score)
+  localStorage.setItem('score',scoreJson)
+  
 
   function dataLog(){
     console.log(computer.randomnum);
@@ -64,6 +69,7 @@ Wins: ${score.win}, Losses: ${score.lose}, Ties: ${score.tie}`)
   dataLog()
 
   alertBox()
+
 
 }
 

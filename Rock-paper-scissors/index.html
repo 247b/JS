@@ -15,10 +15,9 @@
     <button onclick="game('paper📃')">Paper</button>
     <button onclick="game('scissors✂')">Scissors</button>
     <button onclick="reset()">Reset score</button>
-    <!-- <button onclick="
-    const h =5
-    debug()
-    ">Debug</button> -->
+    <button onclick="
+    console.log(JSON.parse(localStorage.getItem('score')));
+    ">Debug</button>
   </div>
   
 </body>
