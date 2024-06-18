@@ -1,4 +1,4 @@
-let score = {
+const score = {
   win:0,
   lose:0,
   tie:0,
@@ -8,8 +8,8 @@ function reset(){
   score.win = 0,
   score.lose = 0,
   score.tie = 0,
-  console.log('Scores are reset...');
-  alert('Started a new game')
+  console.clear()
+  console.log('Started New Game');
 }
 
 function game(myMove){
@@ -33,19 +33,19 @@ function game(myMove){
   player.move = myMove
   if( player.move === computer.move){
     player.result = 'match tied🤝'
-    score.tie += 1
+    score.tie ++;
 
   }else if ((player.move === 'rock🗿' && computer.move === 'paper📃') || 
             (player.move === 'paper📃' && computer.move === 'scissors✂') ||
             (player.move === 'scissors✂' && computer.move === 'rock🗿')){
     player.result = 'You lost the match👎'
-    score.lose += 1
+    score.lose ++;
 
   }else if ((player.move === 'rock🗿' && computer.move === 'scissors✂') || 
             (player.move === 'paper📃' && computer.move === 'rock🗿') ||
             (player.move === 'scissors✂' && computer.move === 'paper📃')){
     player.result = 'You won the match👍'
-    score.win += 1
+    score.win ++;
   }
 
   function dataLog(){
@@ -56,7 +56,8 @@ function game(myMove){
     }
   
   function alertBox() {
-    alert(`${player.result},\nYou picked ${player.move},\nand computer picked ${computer.move}\nwins:${score.win} lost:${score.lose} tie:${score.tie}`)
+    alert(`${player.result},\nYou picked ${player.move}, and computer picked ${computer.move}
+Wins: ${score.win}, Losses: ${score.lose}, Ties: ${score.tie}`)
     }
   
   
@@ -65,6 +66,7 @@ function game(myMove){
   alertBox()
 
 }
+
 
 
 
